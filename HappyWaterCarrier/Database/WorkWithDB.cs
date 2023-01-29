@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace HappyWaterCarrier.Database
 {
+    //add check on errors
     public static class WorkWithDB
     {
         public static HappyWaterCarrierEntities db = new HappyWaterCarrierEntities();

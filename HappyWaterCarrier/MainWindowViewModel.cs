@@ -15,6 +15,7 @@ namespace HappyWaterCarrier
 {
     //TODO: check if database is exist and create if its not
     //TODO: add scrolview to pages
+    
     [AddINotifyPropertyChangedInterface]
     public class MainWindowViewModel
     {
