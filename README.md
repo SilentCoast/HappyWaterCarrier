@@ -2,6 +2,7 @@
 Информационная система для манипулирования Заказами, Сотрудниками и Подразделениями.
 
 WPF, MVVM, MSSQL, EntityFramework(ADO.NET)
+
 Visual by MaterialDesign
 
 ![image](https://user-images.githubusercontent.com/94042423/215350363-18070b31-7866-40ec-b939-c2eb993512ab.png)
