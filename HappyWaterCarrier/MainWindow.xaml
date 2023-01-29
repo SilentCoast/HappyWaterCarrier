@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HappyWaterCarrier"
         mc:Ignorable="d"
-        Title="Весёлый водовоз" Height="450" Width="800"
+        Title="Весёлый Роджер" Height="450" Width="800"
         xmlns:vm="clr-namespace:HappyWaterCarrier"
         d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
         Icon="Images/water.png"
