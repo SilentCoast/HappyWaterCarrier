@@ -24,27 +24,13 @@ namespace HappyWaterCarrier
     public partial class MainWindow : Window
     {
         MainWindowViewModel vm;
-        //TODO: redo as MVVM
         public MainWindow()
         {
             InitializeComponent();
             FrameManager.Frame = frame;   
             vm = new MainWindowViewModel();
             DataContext= vm;
-            
-            PopupManager.IsOpenChanged += PopupManager_IsOpenChanged;
         }
-
-        private void PopupManager_IsOpenChanged(object sender, EventArgs e)
-        {
-            txtPopup.Text = ((PopupData)sender).Text; 
-            txtPopup.Foreground = ((PopupData)sender).Foreground;
-            //TODO: IsOpen always true wnen event is raised 
-            popup.IsOpen = ((PopupData)sender).IsOpen;
-        }
-
-       
-
         private void frame_ContentRendered(object sender, EventArgs e)
         {
             if(frame.CanGoBack)

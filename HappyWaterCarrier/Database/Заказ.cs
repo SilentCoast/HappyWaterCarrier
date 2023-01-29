@@ -24,10 +24,6 @@ namespace HappyWaterCarrier.Database
     
         public virtual Сотрудник Сотрудник { get; set; }
 
-        private RelayCommand editOrder;
-        public RelayCommand EditOrder => editOrder ?? (editOrder = new RelayCommand(obj =>
-        {
-            FrameManager.Frame.Navigate(new AddEditOrderPage(this));
-        }));
+        
     }
 }

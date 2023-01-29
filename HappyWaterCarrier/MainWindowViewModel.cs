@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace HappyWaterCarrier
 {
@@ -21,6 +22,12 @@ namespace HappyWaterCarrier
             WorkWithDB.GetЗаказы();
 
             FrameManager.Frame.Navigate(new MainMenuPage());
+            PopupManager.IsOpenChanged += PopupManager_IsOpenChanged;
+        }
+        public PopupData popupData { get; set; }
+        private void PopupManager_IsOpenChanged(object sender, EventArgs e)
+        {
+            popupData = ((PopupData)sender);
         }
         private RelayCommand frameGoBack;
         public RelayCommand FrameGoBack => frameGoBack ?? (frameGoBack = new RelayCommand(g =>

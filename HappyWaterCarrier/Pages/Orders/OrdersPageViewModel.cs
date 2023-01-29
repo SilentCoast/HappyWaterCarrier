@@ -14,9 +14,9 @@ using System.Windows.Controls;
 
 namespace HappyWaterCarrier.Pages.Orders
 {
-    [AddINotifyPropertyChangedInterface]
     public class OrdersPageViewModel
     {
+        public Заказ SelectedOrder { get; set; }
         public List<Заказ> SelectedOrders { get; set; }
         public List<Заказ> orders=> WorkWithDB.GetЗаказы();
         public event EventHandler DataGridUpdateRequested;
@@ -37,7 +37,11 @@ namespace HappyWaterCarrier.Pages.Orders
             }
             PopupManager.OpenMessagePopup("Изменения сохранены");
         }));
+        private RelayCommand editOrder;
+        public RelayCommand EditOrder => editOrder ?? (editOrder = new RelayCommand(obj =>
+        {
+            FrameManager.Frame.Navigate(new AddEditOrderPage(SelectedOrder));
+        }));
 
-        
     }
 }

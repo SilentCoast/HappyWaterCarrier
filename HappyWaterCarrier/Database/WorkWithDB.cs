@@ -64,6 +64,10 @@ namespace HappyWaterCarrier.Database
                 return false;
             }
         }
+        //public static List<Заказ> GetDependedOrders(Сотрудник employee)
+        //{
+        //    employee.Заказ;
+        //}
         public static List<Пол> GetGenders()
         {
             return db.Пол.ToList();

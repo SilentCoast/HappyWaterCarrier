@@ -28,6 +28,7 @@ namespace HappyWaterCarrier.Database
         public string Имя { get; set; }
         public string Отчество { get; set; }
         public Nullable<System.DateTime> Дата_рождения { get; set; }
+        public string DateOfBirthAsString { get { return Дата_рождения.Value.ToShortDateString(); } set { } }
         public Nullable<int> Пол_Id { get; set; }
         public Nullable<int> Подразделение_Id { get; set; }
     
@@ -37,10 +38,6 @@ namespace HappyWaterCarrier.Database
         public virtual ICollection<Подразделение> Подразделение { get; set; }
         public virtual Подразделение Подразделение1 { get; set; }
         public virtual Пол Пол { get; set; }
-        private RelayCommand editEmployee;
-        public RelayCommand EditEmployee => editEmployee ?? (editEmployee = new RelayCommand(o =>
-        {
-            FrameManager.Frame.Navigate(new AddEditEmployeePage(this));
-        }));
+        
     }
 }

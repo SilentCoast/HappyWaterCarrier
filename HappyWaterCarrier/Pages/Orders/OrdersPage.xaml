@@ -18,7 +18,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid SelectionMode="Extended" x:Name="dataGrid" ItemsSource="{Binding orders}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged" >
+        <DataGrid SelectedItem="{Binding SelectedOrder}" SelectionMode="Extended" x:Name="dataGrid" ItemsSource="{Binding orders}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Номер}" Header="Номер"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Название_товара}" Header="Название товара"></DataGridTextColumn>
@@ -26,7 +26,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding EditOrder}">
+                            <Button Command="{Binding DataContext.EditOrder, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Page}}}">
                                 <Image Source="../../Images/edit.png"></Image>
                             </Button>
                         </DataTemplate>

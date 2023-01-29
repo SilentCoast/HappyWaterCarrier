@@ -31,7 +31,6 @@ namespace HappyWaterCarrier.Pages.Divisions
             }
             else
             {
-                //TODO: popup error message
                 PopupManager.OpenErrorPopup("Ошибка");
             }
         }));

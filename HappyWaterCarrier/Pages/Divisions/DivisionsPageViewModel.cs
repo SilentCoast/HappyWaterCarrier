@@ -10,10 +10,10 @@ using System.Windows.Controls;
 
 namespace HappyWaterCarrier.Pages.Divisions
 {
-    [AddINotifyPropertyChangedInterface]
     public class DivisionsPageViewModel
     {
         public List<Подразделение> SelectedDivisions { get; set; }
+        public Подразделение selectedDivision { get; set; }
         public List<Подразделение> divisions => WorkWithDB.GetПодразделения();
         public event EventHandler DataGridUpdateRequested;
         private RelayCommand addDivision;
@@ -21,8 +21,9 @@ namespace HappyWaterCarrier.Pages.Divisions
         {
             FrameManager.Frame.Navigate(new AddEditDivisionPage(new Подразделение()));
         }));
+        //TODO: when remove divisions ask to remove all dependend employee(which have dependent orders) as well
         private RelayCommand removeDivisions;
-        public RelayCommand RemoveOrders => removeDivisions ?? (removeDivisions = new RelayCommand(Grisha =>
+        public RelayCommand RemoveDivisions => removeDivisions ?? (removeDivisions = new RelayCommand(Grisha =>
         {
             WorkWithDB.RemoveDvisions(SelectedDivisions);
 
@@ -31,6 +32,11 @@ namespace HappyWaterCarrier.Pages.Divisions
                 DataGridUpdateRequested(this, EventArgs.Empty);
             }
             PopupManager.OpenMessagePopup("Изменения сохранены");
+        }));
+        private RelayCommand editDivision;
+        public RelayCommand EditDivision => editDivision ?? (editDivision = new RelayCommand(obj =>
+        {
+            FrameManager.Frame.Navigate(new AddEditDivisionPage(selectedDivision));
         }));
     }
 }

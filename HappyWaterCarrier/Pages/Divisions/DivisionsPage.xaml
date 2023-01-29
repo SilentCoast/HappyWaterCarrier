@@ -12,6 +12,7 @@
       xmlns:vm="clr-namespace:HappyWaterCarrier.Pages.Divisions"
       d:DataContext="{d:DesignInstance Type=vm:DivisionsPageViewModel}"
        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" IsVisibleChanged="Page_IsVisibleChanged" 
+      
       >
 
     <Grid>
@@ -19,14 +20,14 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid SelectionMode="Extended" x:Name="dataGrid" ItemsSource="{Binding divisions}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  >
+        <DataGrid SelectedItem="{Binding selectedDivision}" SelectionMode="Extended" x:Name="dataGrid" ItemsSource="{Binding divisions}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Название}" Header="Название"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Сотрудник.Фамилия}" Header="Руководитель"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding EditDivision}">
+                            <Button Command="{Binding DataContext.EditDivision, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Page}}}">
                                 <Image Source="../../Images/edit.png"></Image>
                             </Button>
                         </DataTemplate>
@@ -36,7 +37,7 @@
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Command="{Binding AddDivision}">Добавить</Button>
-            <Button Margin="20 0 0 0" Command="{Binding RemoveOrders}">Удалить</Button>
+            <Button Margin="20 0 0 0" Command="{Binding RemoveDivisions}">Удалить</Button>
         </StackPanel>
 
 

@@ -17,7 +17,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid SelectionMode="Extended" x:Name="dataGrid" ItemsSource="{Binding employees}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  >
+        <DataGrid SelectedItem="{Binding SelectedEmployee}" SelectionMode="Extended" x:Name="dataGrid" ItemsSource="{Binding employees}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  >
             <DataGrid.Columns>
 
                 <DataGridTemplateColumn Header="ФИО">
@@ -33,13 +33,13 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding Дата_рождения}" Header="Дата рождения"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DateOfBirthAsString}" Header="Дата рождения"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Пол.Name}" Header="Пол"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Подразделение1.Название}" Header="Подразделение"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding EditEmployee}">
+                            <Button Command="{Binding DataContext.EditEmployee, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Page}}}">
                                 <Image Source="../../Images/edit.png"></Image>
                             </Button>
                         </DataTemplate>

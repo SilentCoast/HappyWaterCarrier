@@ -1,7 +1,9 @@
-﻿using System.Windows.Media;
+﻿using PropertyChanged;
+using System.Windows.Media;
 
 namespace HappyWaterCarrier.Classes
 {
+    [AddINotifyPropertyChangedInterface]
     public class PopupData
     {
         public string Text { get; set; }
