@@ -6,9 +6,13 @@ WPF, MVVM, MSSQL, EntityFramework(ADO.NET)
 Visual by MaterialDesign
 
 Как запустить:
+
 -Создать базу данных используя скрипт HappyWaterCarrierDataBaseScript.sql
+
 -Установить приложение используя инсталятор HappyWaterCarrierSetup.msi
+
 -Запустить приложение через ярлык на рабочем столе или в установленной папке
+
 
 
 ![image](https://user-images.githubusercontent.com/94042423/215350363-18070b31-7866-40ec-b939-c2eb993512ab.png)
