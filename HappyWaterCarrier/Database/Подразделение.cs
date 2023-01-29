@@ -9,9 +9,13 @@
 
 namespace HappyWaterCarrier.Database
 {
+    using HappyWaterCarrier.Classes;
+    using HappyWaterCarrier.Pages.Divisions;
+    using PropertyChanged;
     using System;
     using System.Collections.Generic;
-    
+
+    [AddINotifyPropertyChangedInterface]    
     public partial class Подразделение
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,5 +31,11 @@ namespace HappyWaterCarrier.Database
         public virtual Сотрудник Сотрудник { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Сотрудник> Сотрудник1 { get; set; }
+        //TODO: move command to viewmodel in all models as well
+        private RelayCommand editDivision;
+        public RelayCommand EditDivision => editDivision ?? (editDivision = new RelayCommand(obj =>
+        {
+            FrameManager.Frame.Navigate(new AddEditDivisionPage(this));
+        }));
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HappyWaterCarrier.Classes;
+using HappyWaterCarrier.Pages.Divisions;
 using HappyWaterCarrier.Pages.Employees;
 using HappyWaterCarrier.Pages.Orders;
 using System;
@@ -24,7 +25,7 @@ namespace HappyWaterCarrier.Pages
         private RelayCommand goToDivisions;
         public RelayCommand GoToDivisions => goToDivisions ?? (goToDivisions = new RelayCommand(p =>
         {
-           // FrameManager.Frame.Navigate();
+            FrameManager.Frame.Navigate(new DivisionsPage());
         }));
     }
 }

@@ -37,7 +37,10 @@ namespace HappyWaterCarrier
 
         private void PopupManager_IsOpenChanged(object sender, EventArgs e)
         {
-            popup.IsOpen = PopupManager.IsOpen;
+            txtPopup.Text = ((PopupData)sender).Text; 
+            txtPopup.Foreground = ((PopupData)sender).Foreground;
+            //TODO: IsOpen always true wnen event is raised 
+            popup.IsOpen = ((PopupData)sender).IsOpen;
         }
 
        

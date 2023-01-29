@@ -28,7 +28,7 @@ namespace HappyWaterCarrier.Pages.Employees
             {
                 DataGridUpdateRequested(this, EventArgs.Empty);
             }
-            PopupManager.IsOpen = true;
+            PopupManager.OpenMessagePopup("Изменения сохранены");
         }));
     }
 }

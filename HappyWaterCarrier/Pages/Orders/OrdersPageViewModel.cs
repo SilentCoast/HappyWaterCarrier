@@ -35,7 +35,7 @@ namespace HappyWaterCarrier.Pages.Orders
             {
                 DataGridUpdateRequested(this, EventArgs.Empty);
             }
-            PopupManager.IsOpen = true;
+            PopupManager.OpenMessagePopup("Изменения сохранены");
         }));
 
         

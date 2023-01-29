@@ -88,6 +88,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\FrameManager.cs" />
+    <Compile Include="Classes\PopupData.cs" />
     <Compile Include="Classes\PopupManager.cs" />
     <Compile Include="Classes\RelayCommand.cs" />
     <Compile Include="Database\Model1.Context.cs">
@@ -125,6 +126,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Divisions\AddEditDivisionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Divisions\DivisionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Employees\AddEditEmployeePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +157,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Pages\Divisions\AddEditDivisionPage.xaml.cs">
+      <DependentUpon>AddEditDivisionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Divisions\AddEditDivisionPageViewModel.cs" />
+    <Compile Include="Pages\Divisions\DivisionsPage.xaml.cs">
+      <DependentUpon>DivisionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Divisions\DivisionsPageViewModel.cs" />
     <Compile Include="Pages\Employees\AddEditEmployeePage.xaml.cs">
       <DependentUpon>AddEditEmployeePage.xaml</DependentUpon>
     </Compile>

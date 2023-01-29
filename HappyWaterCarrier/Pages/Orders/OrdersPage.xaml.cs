@@ -21,10 +21,11 @@ namespace HappyWaterCarrier.Pages.Orders
     /// </summary>
     public partial class OrdersPage : Page
     {
+        private OrdersPageViewModel vm;
         public OrdersPage()
         {
             InitializeComponent();
-            var vm = new OrdersPageViewModel();
+            vm = new OrdersPageViewModel();
             DataContext = vm;
             vm.DataGridUpdateRequested += Vm_DataGridUpdateRequested;
             
@@ -32,17 +33,17 @@ namespace HappyWaterCarrier.Pages.Orders
 
         private void Vm_DataGridUpdateRequested(object sender, EventArgs e)
         {
-            dataGrid.ItemsSource = ((OrdersPageViewModel)DataContext).orders;
+            dataGrid.ItemsSource = vm.orders;
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            dataGrid.ItemsSource = ((OrdersPageViewModel)DataContext).orders;
+            dataGrid.ItemsSource = vm.orders;
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ((OrdersPageViewModel)DataContext).SelectedOrders = dataGrid.SelectedItems.Cast<Заказ>().ToList();
+            vm.SelectedOrders = dataGrid.SelectedItems.Cast<Заказ>().ToList();
             
         }
 

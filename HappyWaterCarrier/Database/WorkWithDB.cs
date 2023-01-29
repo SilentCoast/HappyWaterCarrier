@@ -72,6 +72,29 @@ namespace HappyWaterCarrier.Database
         {
             return db.Подразделение.ToList();
         }
+        public static bool PutDivision(Подразделение division)
+        {
+            try
+            {
+                db.Подразделение.AddOrUpdate(division);
+                db.SaveChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+        public static bool RemoveDvisions(List<Подразделение> divisions)
+        {
+            try
+            {
+                db.Подразделение.RemoveRange(divisions);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
 
+            }
+        }
     }
 }

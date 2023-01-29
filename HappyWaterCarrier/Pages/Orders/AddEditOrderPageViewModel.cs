@@ -47,11 +47,11 @@ namespace HappyWaterCarrier.Pages.Orders
             if (WorkWithDB.PutЗаказ(order))
             {
                 FrameManager.Frame.GoBack();
-                PopupManager.IsOpen= true;
+                PopupManager.OpenMessagePopup("Изменения сохранены");
             }
             else
             {
-                MessageBox.Show("Что-то пошло не так, попробуйте снова.\nЕсли ошибка сохранится, обратитесь в поддержку");
+                PopupManager.OpenErrorPopup("Что-то пошло не так, попробуйте снова.\nЕсли ошибка сохранится, обратитесь в поддержку");
             }
         }));
         

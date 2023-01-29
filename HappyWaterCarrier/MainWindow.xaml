@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="frame" ContentRendered="frame_ContentRendered"></Frame>
         <Popup Name="popup" PlacementTarget="{Binding ElementName=frame}" StaysOpen="False" Placement="Bottom">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" Padding="10" Background="White" Foreground="DarkGreen" TextWrapping="Wrap" >Изменения сохранены</TextBlock>
+            <TextBlock Name="txtPopup" Style="{DynamicResource MaterialDesignTextBlock}" Padding="10" Background="White" TextWrapping="Wrap" ></TextBlock>
         </Popup>
         <Button VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 00 0 0" Command="{Binding FrameGoBack}" Visibility="{Binding IsGoBackVisible}">
             <Image Source="Images/arrow.png"></Image>

@@ -24,7 +24,7 @@ namespace HappyWaterCarrier.Pages.Employees
             if (WorkWithDB.PutEmployee(employee))
             {
                 FrameManager.Frame.GoBack();
-                PopupManager.IsOpen = true;
+                PopupManager.OpenMessagePopup("Изменения сохранены");
             }
            
         }));
