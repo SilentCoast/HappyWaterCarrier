@@ -1,0 +1,32 @@
+﻿<Window x:Class="HappyWaterCarrier.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HappyWaterCarrier"
+        mc:Ignorable="d"
+        Title="Весёлый Роджер" Height="450" Width="800"
+        xmlns:vm="clr-namespace:HappyWaterCarrier"
+        d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
+        Icon="Images/water.png"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="frame" ContentRendered="frame_ContentRendered"></Frame>
+        <Popup IsOpen="{Binding popupData.IsOpen}" PlacementTarget="{Binding ElementName=frame}" 
+               StaysOpen="False" Placement="Bottom">
+            <TextBlock Text="{Binding popupData.Text}" Foreground="{Binding popupData.Foreground}" 
+                       Style="{DynamicResource MaterialDesignTextBlock}" Padding="10" Background="White" 
+                       TextWrapping="Wrap" ></TextBlock>
+        </Popup>
+        <Button x:Name="btnGoBack" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                Margin="20 0 0 0" Command="{Binding FrameGoBack}">
+            <Image Source="Images/arrow.png"></Image>
+        </Button>
+        <TextBlock HorizontalAlignment="Center" Foreground="Orange" FontWeight="Bold" 
+                   FontSize="25" VerticalAlignment="Center" Text="Весёлый Роджер"></TextBlock>
+    </Grid>
+</Window>

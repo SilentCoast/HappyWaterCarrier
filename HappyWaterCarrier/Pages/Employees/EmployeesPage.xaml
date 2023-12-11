@@ -1,0 +1,57 @@
+﻿<Page x:Class="HappyWaterCarrier.Pages.Employees.EmployeesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HappyWaterCarrier.Pages.Employees"
+      xmlns:vm="clr-namespace:HappyWaterCarrier.Pages.Employees"
+      mc:Ignorable="d" 
+      d:DataContext="{d:DesignInstance Type=vm:EmployeesPageViewModel}"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EmployeesPage"
+      Background="White" IsVisibleChanged="Page_IsVisibleChanged"
+      >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid SelectedItem="{Binding SelectedEmployee}" SelectionMode="Extended" x:Name="dataGrid" ItemsSource="{Binding employees}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  >
+            <DataGrid.Columns>
+
+                <DataGridTemplateColumn Header="ФИО">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Фамилия}"></TextBlock>
+                                <Separator Background="Transparent" Width="5"></Separator>
+                                <TextBlock Text="{Binding Имя}"></TextBlock>
+                                <Separator Background="Transparent" Width="5"></Separator>
+                                <TextBlock Text="{Binding Отчество}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding DateOfBirthAsString}" Header="Дата рождения"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Пол.Name}" Header="Пол"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Подразделение1.Название}" Header="Подразделение"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding DataContext.EditEmployee, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Page}}}">
+                                <Image Source="../../Images/edit.png"></Image>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Command="{Binding AddEmployee}">Добавить</Button>
+            <Button Margin="20 0 0 0" Command="{Binding RemoveEmployee}">Удалить</Button>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

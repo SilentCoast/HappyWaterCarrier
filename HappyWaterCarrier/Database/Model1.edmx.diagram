@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a583f20c302147e8b7d075109d967438" Name="Diagram1">
+        <EntityTypeShape EntityType="HappyWaterCarrierModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HappyWaterCarrierModel.Заказ" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HappyWaterCarrierModel.Подразделение" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HappyWaterCarrierModel.Пол" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HappyWaterCarrierModel.Сотрудник" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="HappyWaterCarrierModel.FK_Заказ_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="HappyWaterCarrierModel.FK_Подразделение_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="HappyWaterCarrierModel.FK_Сотрудник_Подразделение" ManuallyRouted="false" />
+        <AssociationConnector Association="HappyWaterCarrierModel.FK_Сотрудник_Пол" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

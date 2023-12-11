@@ -1,0 +1,44 @@
+﻿<Page x:Class="HappyWaterCarrier.Pages.Orders.OrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HappyWaterCarrier.Pages.Orders"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrdersPage"
+      Background="White"
+      xmlns:vm="clr-namespace:HappyWaterCarrier.Pages.Orders"
+      d:DataContext="{d:DesignInstance Type=vm:OrdersPageViewModel}"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" IsVisibleChanged="Page_IsVisibleChanged"
+      >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid SelectedItem="{Binding SelectedOrder}" SelectionMode="Extended" x:Name="dataGrid" ItemsSource="{Binding orders}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Номер}" Header="Номер"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Название_товара}" Header="Название товара"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Сотрудник.Фамилия}" Header="Сотрудник"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding DataContext.EditOrder, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Page}}}">
+                                <Image Source="../../Images/edit.png"></Image>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Command="{Binding AddOrder}">Добавить</Button>
+            <Button Margin="20 0 0 0" Command="{Binding RemoveOrders}">Удалить</Button>
+        </StackPanel>
+
+        
+    </Grid>
+</Page>
